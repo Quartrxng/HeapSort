@@ -32,20 +32,28 @@ namespace HeapSort
         {
             IterationCount++;
 
-            int largest = rootIndex;
-            int left = 2 * rootIndex + 1;
-            int right = 2 * rootIndex + 2;
-
-            if (left < size && array[left] > array[largest])
-                largest = left;
-
-            if (right < size && array[right] > array[largest])
-                largest = right;
-
-            if (largest != rootIndex)
+            while (true)
             {
-                (array[rootIndex], array[largest]) = (array[largest], array[rootIndex]);
-                Heapify(array, size, largest);
+                int largest = rootIndex;
+                int left = 2 * rootIndex + 1;
+                int right = 2 * rootIndex + 2;
+
+                if (left < size && array[left] > array[largest])
+                    largest = left;
+
+                if (right < size && array[right] > array[largest])
+                    largest = right;
+
+                if (largest != rootIndex)
+                {
+                    (array[rootIndex], array[largest]) = (array[largest], array[rootIndex]);
+                    rootIndex = largest;
+                    IterationCount++;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }

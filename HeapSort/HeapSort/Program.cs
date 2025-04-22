@@ -16,6 +16,8 @@
 
             // new Generator().GenerateTests(10, testsFolder, 1, 10);
 
+            new Generator().GenerateTests(3,testsFolder,5); 
+
             new Tester().TestSorting(testsFolder, reusltFolder);
         }
     }
